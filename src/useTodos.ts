@@ -30,6 +30,11 @@ function saveTodos(todos: Todo[]): void {
 export function useTodos() {
   const [todos, setTodos] = useState<Todo[]>(loadTodos)
 
+  // Intentional TypeScript error to test failing CI workflow.
+  // `wrongType` is declared as a string but assigned a number.
+  // Remove this variable once you've confirmed the workflow fails.
+  const wrongType: string = 123
+
   useEffect(() => {
     saveTodos(todos)
   }, [todos])
